@@ -27,10 +27,10 @@ jobs:
         password: ${{ secrets.AzureAppService_ContainerPassword_9f1a3880d752402a92f2277e61120ae3 }}
     
     - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
-        with:
-          images: josingh2417/nginx-new
+      id: meta
+      uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+      with:
+        images: josingh2417/nginx-new
     
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
