@@ -23,18 +23,18 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_ef55aab73143457fab409cec6efd2604 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_4d8dadf91a2749258e1273e29252eb59 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_b94b949baed74be08ec2e63cdf03deba }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_9f1a3880d752402a92f2277e61120ae3 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_ef55aab73143457fab409cec6efd2604 }}/josingh2417/nginx-new:${{ github.sha }}
-        file: ../../dockerDemo/dockerfile.yaml
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_b94b949baed74be08ec2e63cdf03deba }}/josingh2417/nginx-new:${{ github.sha }}
+        file: ./Dockerfile
 
   deploy:
-    runs-on: 1.10.1-alpine
+    runs-on: ubuntu-latest
     needs: build
     environment:
       name: 'production'
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'nginx-new'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_119a3ae387914f4096cf70dbc4ae2066 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_ef55aab73143457fab409cec6efd2604 }}/josingh2417/nginx-new:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_c9c3286f28da43378988d1c8a1bc9648 }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_b94b949baed74be08ec2e63cdf03deba }}/josingh2417/nginx-new:${{ github.sha }}'
