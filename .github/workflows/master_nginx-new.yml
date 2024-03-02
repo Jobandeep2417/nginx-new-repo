@@ -31,7 +31,7 @@ jobs:
       with:
         push: true
         tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_af44b2906d5d431f944a71afb9707c76 }}/josingh2417/nginx-new:${{ github.sha }}
-        file: ../../dockerDemo/dockerfile
+        file: ../../dockerDemo/dockerfile.yaml
 
   deploy:
     runs-on: debian
