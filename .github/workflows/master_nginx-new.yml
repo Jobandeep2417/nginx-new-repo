@@ -36,7 +36,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_b94b949baed74be08ec2e63cdf03deba }}/josingh2417/nginx-new:${{ github.sha }}
+        tags: index.docker.io/josingh2417/nginx-new:${{ github.sha }}
         file: ../../dockerDemo/dockerfile.yaml
         labels: ${{ steps.meta.outputs.labels }}
 
