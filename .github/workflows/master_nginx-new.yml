@@ -34,7 +34,7 @@ jobs:
         file: ../../dockerDemo/dockerfile.yaml
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: 1.10.1-alpine
     needs: build
     environment:
       name: 'production'
